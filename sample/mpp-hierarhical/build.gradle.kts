@@ -23,6 +23,12 @@ android {
     testOptions {
         unitTests.isIncludeAndroidResources = true
     }
+
+    sourceSets{
+        this.getByName("main"){
+            res.srcDir(File(buildDir, "generated/moko/androidMain/res"))
+        }
+    }
 }
 
 // CocoaPods requires the podspec to have a version.
@@ -111,6 +117,13 @@ kotlin {
                 .configureEach { xcFramework.add(this) }
         }
 }
+
+listOf("iosX64Test","iosSimulatorArm64Test").forEach {
+    tasks.getByName<org.jetbrains.kotlin.gradle.targets.native.tasks.KotlinNativeSimulatorTest>(it){
+        deviceId = "iPhone 14"
+    }
+}
+
 
 multiplatformResources {
     multiplatformResourcesPackage = "com.icerockdev.library"

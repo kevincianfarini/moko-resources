@@ -77,3 +77,9 @@ val copyIosArm64TestResources = tasks.register<Copy>("copyIosArm64TestResources"
 }
 
 tasks.findByName("iosSimulatorArm64Test")!!.dependsOn(copyIosArm64TestResources)
+
+listOf("iosX64Test","iosSimulatorArm64Test").forEach {
+    tasks.getByName<org.jetbrains.kotlin.gradle.targets.native.tasks.KotlinNativeSimulatorTest>(it){
+        deviceId = "iPhone 14"
+    }
+}

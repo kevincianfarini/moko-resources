@@ -13,10 +13,17 @@ plugins {
 
 android {
     namespace = "com.icerockdev.library"
-
+    lint {
+        disable += "ImpliedQuantity"
+    }
     testOptions {
         unitTests {
             isIncludeAndroidResources = true
+        }
+    }
+    sourceSets{
+        this.getByName("main"){
+            res.srcDir(File(buildDir, "generated/moko/androidMain/res"))
         }
     }
 }
@@ -31,6 +38,12 @@ kotlin {
             binaries.withType(org.jetbrains.kotlin.gradle.plugin.mpp.Framework::class)
                 .configureEach { xcFramework.add(this) }
         }
+}
+
+listOf("iosX64Test","iosSimulatorArm64Test").forEach {
+    tasks.getByName<org.jetbrains.kotlin.gradle.targets.native.tasks.KotlinNativeSimulatorTest>(it){
+        deviceId = "iPhone 14"
+    }
 }
 
 dependencies {

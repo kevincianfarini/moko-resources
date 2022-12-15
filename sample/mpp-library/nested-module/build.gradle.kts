@@ -11,6 +11,15 @@ plugins {
     id("com.gradleup.auto.manifest")
 }
 
+android {
+    sourceSets{
+        this.getByName("main"){
+            res.srcDir(File(buildDir, "generated/moko/androidMain/res"))
+        }
+    }
+}
+
+
 dependencies {
     commonMainApi(projects.resources)
 }
