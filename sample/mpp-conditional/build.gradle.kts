@@ -11,8 +11,13 @@ plugins {
 }
 
 android {
-    lintOptions {
-        disable("ImpliedQuantity")
+    lint {
+        disable += "ImpliedQuantity"
+    }
+    sourceSets{
+        this.getByName("main"){
+            res.srcDir(File(buildDir, "generated/moko/androidMain/res"))
+        }
     }
 }
 

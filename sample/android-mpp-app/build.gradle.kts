@@ -20,6 +20,11 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
+    sourceSets{
+        this.getByName("main"){
+            res.srcDir(File(buildDir, "generated/moko/androidMain/res"))
+        }
+    }
 }
 
 kotlin {

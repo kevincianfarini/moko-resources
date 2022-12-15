@@ -1,6 +1,6 @@
 [versions]
 kotlinVersion = "1.6.10"
-androidGradleVersion = "7.2.0"
+androidGradleVersion = "7.3.1"
 
 # kotlinx
 kotlinxSerializationVersion = "1.2.1"
@@ -94,4 +94,4 @@ kotlinCompilerEmbeddable = { module = "org.jetbrains.kotlin:kotlin-compiler-embe
 detektGradlePlugin = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "detektVersion" }
 mokoMultiplatformPlugin = { module = "dev.icerock:mobile-multiplatform", version.ref = "mokoMultiplatformPluginVersion" }
 composeJetBrainsPlugin = { module = "org.jetbrains.compose:compose-gradle-plugin", version.ref = "composeJetbrainsVersion" }
-autoManifestPlugin = { module = "com.gradleup:auto-manifest-plugin", version = "1.1.1" }
+autoManifestPlugin = { module = "com.gradleup:auto-manifest-plugin", version = "2.0" }
